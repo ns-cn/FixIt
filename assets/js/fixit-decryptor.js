@@ -54,7 +54,7 @@ FixItDecryptor = function (options = {}) {
         const password = $content.getAttribute('data-password');
         const input = this.value.trim();
         const saltLen = input.length % 2 ? input.length : input.length + 1;
-        const inputMd5 = CryptoJS.MD5(input).toString();
+        const inputMd5 = CryptoJS.MD5(CryptoJS.MD5(input).toString()).toString();
         const inputSha256 = CryptoJS.SHA256(input).toString();
 
         this.value = '';
@@ -115,7 +115,7 @@ FixItDecryptor = function (options = {}) {
           const password = $content.getAttribute('data-password');
           const input = this.value.trim();
           const saltLen = input.length % 2 ? input.length : input.length + 1;
-          const inputMd5 = CryptoJS.MD5(input).toString();
+          const inputMd5 = CryptoJS.MD5(CryptoJS.MD5(input).toString()).toString();
           const inputSha256 = CryptoJS.SHA256(input).toString();
   
           this.value = '';
